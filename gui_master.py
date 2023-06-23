@@ -52,7 +52,8 @@ class BitsGUI():
     # ----------------------------------------------------------------------- #
     def publish(self):
         self.addBitBoxes()
-        self.resultGui = ResultGUI(self.root, self)
+        self.resultGui  = ResultGUI (self.root)
+        self.controlGui = ControlGUI(self.root, self)
 
     # ----------------------------------------------------------------------- #
     def addBitBoxes(self):
@@ -91,11 +92,11 @@ class BitsGUI():
         # [31:16] bits
         # ------------------------------------------------------------------- #
         self.sixteenLabel = Label(self.bitLabelFrame1, text="16", 
-                                        bg="white", fg="black", width=3)
+                                    bg="white", fg="black", width=3)
         self.sixteenLabel.pack(side=RIGHT)
 
         self.thirtyoneLabel = Label(self.bitLabelFrame1, text="31", 
-                                        bg="white", fg="black", width=3)
+                                    bg="white", fg="black", width=3)
         self.thirtyoneLabel.pack(side=LEFT)
 
         # ------------------------------------------------------------------- #
@@ -117,10 +118,10 @@ class BitsGUI():
 
         # ------------------------------------------------------------------- #
         self.bitLabelFrame1.pack(fill=X)
-        self.bitBoxFrame1.pack(fill=X)
+        self.bitBoxFrame1.pack  (fill=X)
 
         self.bitLabelFrame0.pack(fill=X)
-        self.bitBoxFrame0.pack(fill=X)
+        self.bitBoxFrame0.pack  (fill=X)
 
     # ----------------------------------------------------------------------- #
     def calcValue(self):
@@ -132,20 +133,19 @@ class BitsGUI():
         for cnt, state in enumerate(self.bitBoxVars1):
             self.resultDec += state.get()*pow(2, cnt + 16)
 
+        self.resultGui.decString.set(f'{self.resultDec}')
+        self.resultGui.hexString.set(f'{hex(self.resultDec)}')
+
         if __debug__:
             print(f'resultDecimal: {self.resultDec}')
             print(f'resultHex: {hex(self.resultDec)}')
-
-        self.resultGui.decString.set(f'{self.resultDec}')
-        self.resultGui.hexString.set(f'{hex(self.resultDec)}')
         
 # =========================================================================== #
 #   RESULT GUI
 # =========================================================================== #
 class ResultGUI():
-    def __init__(self, root, bits):
+    def __init__(self, root):
         self.root = root
-        self.bits = bits
 
         self.resultFrame = Frame(self.root, bg="white")
 
@@ -172,18 +172,45 @@ class ResultGUI():
         self.hexEntry = Entry(self.resultFrame, textvariable=self.hexString,
                          fg="black", bg="white", bd=0, state="readonly")
         
-        self.resetButton    = Button(self.resultFrame, text='Reset',
-                                      command=self.reset)
         
         self.decEntry.grid(row=0, column=4, padx=5, pady=5)
         self.hexEntry.grid(row=1, column=4, padx=5, pady=5)
         
         self.DecLabel.grid(row=0, column=0, padx=5, pady=5, sticky='e')
         self.HexLabel.grid(row=1, column=0, padx=5, pady=5, sticky='e')
-        
-        self.resetButton.grid(row=0, column=8, rowspan=3, padx=5, pady=5)
 
-        self.resultFrame.pack(fill=X)
+        self.resultFrame.pack(side=LEFT)
+
+# =========================================================================== #
+#   CONTROL GUI
+# =========================================================================== #
+class ControlGUI():
+    def __init__(self, root, bits):
+        self.root = root
+        self.bits = bits
+
+        self.controlFrame = Frame(self.root, bg="white")
+
+        self.addControlFrame()
+
+    # ----------------------------------------------------------------------- #
+    def addControlFrame(self):
+        self.lShiftButton = Button(self.controlFrame, text='<<',
+                                    command=self.leftShift)
+        
+        self.rShiftButton = Button(self.controlFrame, text='>>',
+                                    command=self.rightShift)
+
+        self.resetButton = Button(self.controlFrame, text='Reset',
+                                    command=self.reset)
+        
+        self.lShiftButton.grid(row=0, column=0, rowspan=3, padx=5, pady=5)
+
+        self.rShiftButton.grid(row=0, column=1, rowspan=3, padx=5, pady=5)
+        
+        self.resetButton.grid(row=0, column=2, rowspan=3, padx=5, pady=5)
+
+        self.controlFrame.pack(side=LEFT)
 
     # ----------------------------------------------------------------------- #
     def reset(self):
@@ -197,3 +224,37 @@ class ResultGUI():
             state.set(0)
 
         self.bits.calcValue()
+
+    # ----------------------------------------------------------------------- #
+    def leftShift(self):
+        if __debug__:
+            print('Left Shift!')
+
+        self.temp = []
+
+        # ------------------------------------------------------------------- #
+        for cnt, state in enumerate(self.bits.bitBoxVars0):
+            self.temp.append(state.get())
+
+        for cnt, state in enumerate(self.bits.bitBoxVars1):
+            self.temp.append(state.get())
+
+        # ----------------------------------------------------------------------- #
+        self.temp.insert(0, 0)
+
+        del self.temp[-1]
+
+        # ----------------------------------------------------------------------- #
+        for cnt, state in enumerate(self.bits.bitBoxVars0):
+            state.set(self.temp[cnt])
+
+        for cnt, state in enumerate(self.bits.bitBoxVars1):
+            state.set(self.temp[cnt + 16])
+
+        # ----------------------------------------------------------------------- #
+        self.bits.calcValue()
+
+    # ----------------------------------------------------------------------- #
+    def rightShift(self):
+        if __debug__:
+            print('Right Shift!')
