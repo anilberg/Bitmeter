@@ -142,8 +142,8 @@ class BitsGUI():
             print(f'resultDecimal: {self.resultDec}')
             print(f'resultHex: {hex(self.resultDec)}')
 
-        self.resultGui.resultDecLabel['text'] = f'{self.resultDec}'
-        self.resultGui.resultHexLabel['text'] = f'{hex(self.resultDec)}'
+        self.resultGui.decString.set(f'{self.resultDec}')
+        self.resultGui.hexString.set(f'{hex(self.resultDec)}')
         
 # =========================================================================== #
 #   RESULT GUI
@@ -167,12 +167,21 @@ class ResultGUI():
         self.HexLabel = Label(self.resultFrame, text="Hex: ", 
                                 bg="white", fg="black", width=15)
         
-        self.resultDecLabel = Label(self.resultFrame, text=f'{self.resultDec}',
-                                    width=15)
+        self.decString = StringVar()
+        self.hexString = StringVar()
+        self.decString.set('0')
+        self.hexString.set(f'{hex(0)}')
 
-        self.resultHexLabel = Label(self.resultFrame, 
-                                    text=f'{hex(self.resultDec)}',
-                                    width=15)
+        self.decEntry = Entry(self.resultFrame, textvariable=self.decString,
+                         fg="black", bg="white", bd=0, state="readonly")
+        
+        self.decEntry.grid(row=0, column=4, padx=5, pady=5)
+
+        self.hexEntry = Entry(self.resultFrame, textvariable=self.hexString,
+                         fg="black", bg="white", bd=0, state="readonly")
+        
+        self.hexEntry.grid(row=1, column=4, padx=5, pady=5)
+
         
         self.resetButton    = Button(self.resultFrame, text='Reset',
                                       command=self.reset)
@@ -180,13 +189,10 @@ class ResultGUI():
         self.DecLabel.grid(row=0, column=0, padx=5, pady=5, sticky='e')
         self.HexLabel.grid(row=1, column=0, padx=5, pady=5, sticky='e')
         
-        self.resultDecLabel.grid(row=0, column=4, columnspan=3, padx=5, pady=5)
-        self.resultDecLabel.pack_propagate(0)
-        self.resultHexLabel.grid(row=1, column=4, columnspan=3, padx=5, pady=5)
-        self.resultHexLabel.pack_propagate(0)
 
-        self.resetButton.grid(row=0, column=9, rowspan=3, padx=5, pady=5)
+        self.resetButton.grid(row=0, column=8, rowspan=3, padx=5, pady=5)
 
+        
         self.resultFrame.pack(fill=X)
 
     # ----------------------------------------------------------------------- #
