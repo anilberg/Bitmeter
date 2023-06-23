@@ -1,13 +1,6 @@
 from tkinter import *
-from tkinter import ttk
-#from tkinter import messagebox
-#from tkinter import _setit
-#import threading
 
-#import matplotlib.pyplot as plt
-#from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-
-BIT_LEN = 16
+BIT_LEN = 32
 
 # =========================================================================== #
 #   ROOT GUI
@@ -18,10 +11,11 @@ class RootGUI():
         Initializing the root GUI and other comps of the program
         '''
         self.root = Tk()
-        self.root.title    ("Bitmeter")
+        self.root.title    ("Bitmeter by anilberg")
         self.root.geometry ("470x160")
         self.root.resizable(False, False)
         self.root.config   (bg="white")
+        self.root.wm_iconbitmap('test.ico')
 
         self.root.protocol("WM_DELETE_WINDOW", self.closeWindow)
 
@@ -77,7 +71,7 @@ class BitsGUI():
         self.fifteenLabel.pack(side=LEFT)
         
         # ------------------------------------------------------------------- #
-        for i in range(0, BIT_LEN):
+        for i in range(0, int(BIT_LEN/2)):
             self.bitBoxVars0.append(IntVar())
 
             self.bitBoxes0.append(Checkbutton(self.bitBoxFrame0, text='', 
@@ -105,7 +99,7 @@ class BitsGUI():
         self.thirtyoneLabel.pack(side=LEFT)
 
         # ------------------------------------------------------------------- #
-        for i in range(0, BIT_LEN):
+        for i in range(0, int(BIT_LEN/2)):
             self.bitBoxVars1.append(IntVar())
 
             self.bitBoxes1.append(Checkbutton(self.bitBoxFrame1, text='', 
