@@ -1,4 +1,4 @@
-from gui_master import RootGUI, BitsGUI, ResultGUI
+from gui_master import RootGUI, BitsGUI
 
 # =========================================================================== #
 #   INITIALIZATION
