@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 from tkinter import *
+from icons import icons
 
 BIT_LEN = 32
 
@@ -37,7 +38,10 @@ class RootGUI():
         self.root.geometry ("470x160")
         self.root.resizable(False, False)
         self.root.config   (bg="white")
-        self.root.wm_iconbitmap('test.ico')
+        #self.root.wm_iconbitmap('test.ico')
+        #im = PhotoImage(data=icons.icon)
+        self.root.iconphoto(True, PhotoImage(data=icons.favicon))
+
 
         self.root.protocol("WM_DELETE_WINDOW", self.closeWindow)
 
