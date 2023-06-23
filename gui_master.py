@@ -18,7 +18,7 @@ class RootGUI():
         Initializing the root GUI and other comps of the program
         '''
         self.root = Tk()
-        self.root.title    ("test")
+        self.root.title    ("Bitmeter")
         self.root.geometry ("470x160")
         self.root.resizable(False, False)
         self.root.config   (bg="white")
@@ -174,25 +174,21 @@ class ResultGUI():
 
         self.decEntry = Entry(self.resultFrame, textvariable=self.decString,
                          fg="black", bg="white", bd=0, state="readonly")
-        
-        self.decEntry.grid(row=0, column=4, padx=5, pady=5)
 
         self.hexEntry = Entry(self.resultFrame, textvariable=self.hexString,
                          fg="black", bg="white", bd=0, state="readonly")
         
-        self.hexEntry.grid(row=1, column=4, padx=5, pady=5)
-
-        
         self.resetButton    = Button(self.resultFrame, text='Reset',
                                       command=self.reset)
-
+        
+        self.decEntry.grid(row=0, column=4, padx=5, pady=5)
+        self.hexEntry.grid(row=1, column=4, padx=5, pady=5)
+        
         self.DecLabel.grid(row=0, column=0, padx=5, pady=5, sticky='e')
         self.HexLabel.grid(row=1, column=0, padx=5, pady=5, sticky='e')
         
-
         self.resetButton.grid(row=0, column=8, rowspan=3, padx=5, pady=5)
 
-        
         self.resultFrame.pack(fill=X)
 
     # ----------------------------------------------------------------------- #
