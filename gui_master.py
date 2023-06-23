@@ -19,7 +19,7 @@ class RootGUI():
         '''
         self.root = Tk()
         self.root.title    ("test")
-        self.root.geometry ("470x550")
+        self.root.geometry ("470x160")
         self.root.resizable(False, False)
         self.root.config   (bg="white")
 
@@ -162,22 +162,42 @@ class ResultGUI():
     # ----------------------------------------------------------------------- #
     def addResultFrame(self):
         self.DecLabel = Label(self.resultFrame, text="Decimal: ", 
-                                        bg="white", fg="black")
+                                bg="white", fg="black", width=15)
         
         self.HexLabel = Label(self.resultFrame, text="Hex: ", 
-                                        bg="white", fg="black")
+                                bg="white", fg="black", width=15)
         
-        self.resultDecLabel = Label(self.resultFrame, text=f'{self.resultDec}')
+        self.resultDecLabel = Label(self.resultFrame, text=f'{self.resultDec}',
+                                    width=15)
 
         self.resultHexLabel = Label(self.resultFrame, 
-                                    text=f'{hex(self.resultDec)}')
+                                    text=f'{hex(self.resultDec)}',
+                                    width=15)
+        
+        self.resetButton    = Button(self.resultFrame, text='Reset',
+                                      command=self.reset)
 
-        self.DecLabel.grid(row=0, column=3, padx=5, pady=5,
-                                 sticky='e')
-        self.HexLabel.grid(row=1, column=3, padx=5, pady=5,
-                                 sticky='e')
+        self.DecLabel.grid(row=0, column=0, padx=5, pady=5, sticky='e')
+        self.HexLabel.grid(row=1, column=0, padx=5, pady=5, sticky='e')
         
         self.resultDecLabel.grid(row=0, column=4, columnspan=3, padx=5, pady=5)
+        self.resultDecLabel.pack_propagate(0)
         self.resultHexLabel.grid(row=1, column=4, columnspan=3, padx=5, pady=5)
+        self.resultHexLabel.pack_propagate(0)
+
+        self.resetButton.grid(row=0, column=9, rowspan=3, padx=5, pady=5)
 
         self.resultFrame.pack(fill=X)
+
+    # ----------------------------------------------------------------------- #
+    def reset(self):
+        if __debug__:
+            print('Reset!')
+
+        for _, state in enumerate(self.bits.bitBoxVars0):
+            state.set(0)
+
+        for _, state in enumerate(self.bits.bitBoxVars1):
+            state.set(0)
+
+        self.bits.calcValue()
