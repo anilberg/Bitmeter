@@ -53,6 +53,13 @@ class BitsGUI():
         self.bitBoxVars1     = []
         self.dummySeparator1 = []
 
+        self.publish()
+
+    # ----------------------------------------------------------------------- #
+    def publish(self):
+        self.addBitBoxes()
+        self.resultGui = ResultGUI(self.root, self)
+
     # ----------------------------------------------------------------------- #
     def addBitBoxes(self):
         '''
@@ -131,8 +138,12 @@ class BitsGUI():
         for cnt, state in enumerate(self.bitBoxVars1):
             self.resultDec += state.get()*pow(2, cnt + 16)
 
-        print(f'resultDecimal: {self.resultDec}')
-        print(f'resultHex: {hex(self.resultDec)}')
+        if __debug__:
+            print(f'resultDecimal: {self.resultDec}')
+            print(f'resultHex: {hex(self.resultDec)}')
+
+        self.resultGui.resultDecLabel['text'] = f'{self.resultDec}'
+        self.resultGui.resultHexLabel['text'] = f'{hex(self.resultDec)}'
         
 # =========================================================================== #
 #   RESULT GUI
@@ -146,11 +157,6 @@ class ResultGUI():
 
         self.resultDec = 0
 
-        self.publish()
-
-    # ----------------------------------------------------------------------- #
-    def publish(self):
-        self.bits.addBitBoxes()
         self.addResultFrame()
 
     # ----------------------------------------------------------------------- #
@@ -171,12 +177,7 @@ class ResultGUI():
         self.HexLabel.grid(row=1, column=3, padx=5, pady=5,
                                  sticky='e')
         
-        
         self.resultDecLabel.grid(row=0, column=4, columnspan=3, padx=5, pady=5)
         self.resultHexLabel.grid(row=1, column=4, columnspan=3, padx=5, pady=5)
 
         self.resultFrame.pack(fill=X)
-
-    # ----------------------------------------------------------------------- #
-    def updateResult(self):
-        self.resultDecLabel['text'] = '111'

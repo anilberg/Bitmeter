@@ -10,7 +10,6 @@ if __debug__:
 
 RootMaster = RootGUI()
 BitMaster  = BitsGUI(RootMaster.root)
-ResultMaster = ResultGUI(RootMaster.root, BitMaster)
 
 # =========================================================================== #
 #   MAIN LOOP
