@@ -11,7 +11,7 @@ class RootGUI():
         Initializing the root GUI and other comps of the program
         '''
         self.root = Tk()
-        self.root.title    ("Bitmeter by anilberg")
+        self.root.title    ("Bitmeter")
         self.root.geometry ("470x160")
         self.root.resizable(False, False)
         self.root.config   (bg="white")
@@ -54,6 +54,7 @@ class BitsGUI():
         self.addBitBoxes()
         self.resultGui  = ResultGUI (self.root)
         self.controlGui = ControlGUI(self.root, self)
+        self.creditGUI  = CreditGUI (self.root)
 
     # ----------------------------------------------------------------------- #
     def addBitBoxes(self):
@@ -282,3 +283,23 @@ class ControlGUI():
 
         # ----------------------------------------------------------------------- #
         self.bits.calcValue()
+
+# =========================================================================== #
+#   CREDIT GUI
+# =========================================================================== #
+class CreditGUI():
+    def __init__(self, root):
+        self.root = root
+
+        self.creditFrame = Frame(self.root, bg="white")
+
+        self.addcreditFrame()
+
+    # ----------------------------------------------------------------------- #
+    def addcreditFrame(self):
+        self.creditLabel = Label(self.creditFrame, text='by anilberg\n2023', 
+                                 background='white')
+
+        self.creditLabel.pack(fill=X, padx=10, pady=15)
+
+        self.creditFrame.pack(fill=X)
