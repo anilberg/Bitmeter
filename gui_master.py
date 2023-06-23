@@ -258,3 +258,27 @@ class ControlGUI():
     def rightShift(self):
         if __debug__:
             print('Right Shift!')
+
+        self.temp = []
+
+        # ------------------------------------------------------------------- #
+        for cnt, state in enumerate(self.bits.bitBoxVars0):
+            self.temp.append(state.get())
+
+        for cnt, state in enumerate(self.bits.bitBoxVars1):
+            self.temp.append(state.get())
+
+        # ----------------------------------------------------------------------- #
+        self.temp.append(0)
+
+        del self.temp[0]
+
+        # ----------------------------------------------------------------------- #
+        for cnt, state in enumerate(self.bits.bitBoxVars0):
+            state.set(self.temp[cnt])
+
+        for cnt, state in enumerate(self.bits.bitBoxVars1):
+            state.set(self.temp[cnt + 16])
+
+        # ----------------------------------------------------------------------- #
+        self.bits.calcValue()
