@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 16.933333 16.933333"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="çizim.svg"
+   inkscape:export-filename="favico.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="8.3956828"
+     inkscape:cx="20.546274"
+     inkscape:cy="33.410028"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="1791"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="9.1713804"
+       y="11.315339"
+       width="63.604119"
+       height="56.814915"
+       id="rect2729" />
+  </defs>
+  <g
+     inkscape:label="Katman 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       transform="matrix(0.30982362,0,0,0.30982362,-2.3373053,-3.9176219)"
+       id="text2727"
+       style="font-size:42.6667px;font-family:'Spicy Hut';-inkscape-font-specification:'Spicy Hut';text-align:justify;white-space:pre;shape-inside:url(#rect2729);display:inline;fill:#862f3b"><tspan
+         x="9.171875"
+         y="49.235741"
+         id="tspan1810"><tspan
+           style="font-size:29.3333px;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade';fill:#000000"
+           id="tspan1808">10</tspan></tspan></text>
+  </g>
+</svg>

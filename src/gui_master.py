@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 from tkinter import *
-from icons import icons
+from src.icons import icons
 
 BIT_LEN = 32
 

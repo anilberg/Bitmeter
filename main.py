@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from gui_master import RootGUI, BitsGUI
+from src.gui_master import RootGUI, BitsGUI
 
 # =========================================================================== #
 #   INITIALIZATION
