@@ -154,3 +154,7 @@ cython_debug/
 # Executable Outputs
 output/
 *.iss
+
+obj/
+bin/
+Properties/
