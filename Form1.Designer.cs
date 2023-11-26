@@ -65,6 +65,8 @@
             this.hexValueTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.resetButton = new System.Windows.Forms.Button();
+            this.lshButton = new System.Windows.Forms.Button();
+            this.rshButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bit0checkBox
@@ -480,7 +482,7 @@
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(250, 107);
+            this.resetButton.Location = new System.Drawing.Point(283, 108);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(75, 23);
             this.resetButton.TabIndex = 35;
@@ -488,11 +490,33 @@
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
+            // lshButton
+            // 
+            this.lshButton.Location = new System.Drawing.Point(202, 137);
+            this.lshButton.Name = "lshButton";
+            this.lshButton.Size = new System.Drawing.Size(75, 23);
+            this.lshButton.TabIndex = 36;
+            this.lshButton.Text = "<<";
+            this.lshButton.UseVisualStyleBackColor = true;
+            this.lshButton.Click += new System.EventHandler(this.lshButton_Click);
+            // 
+            // rshButton
+            // 
+            this.rshButton.Location = new System.Drawing.Point(283, 137);
+            this.rshButton.Name = "rshButton";
+            this.rshButton.Size = new System.Drawing.Size(75, 23);
+            this.rshButton.TabIndex = 37;
+            this.rshButton.Text = ">>";
+            this.rshButton.UseVisualStyleBackColor = true;
+            this.rshButton.Click += new System.EventHandler(this.rshButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.rshButton);
+            this.Controls.Add(this.lshButton);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.hexValueTextBox);
@@ -576,6 +600,8 @@
         private System.Windows.Forms.TextBox hexValueTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Button lshButton;
+        private System.Windows.Forms.Button rshButton;
     }
 }
 

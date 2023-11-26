@@ -14,9 +14,30 @@ namespace Bitmeter
     {
         int result = 0;
 
+        bool[] bitStates = new bool[32];
+
+        CheckBox[] bitCheckBoxes;
+
         public Form1()
         {
             InitializeComponent();
+
+            bitCheckBoxes = new CheckBox[] {bit0checkBox, bit1checkBox,
+                                                       bit2checkBox, bit3checkBox,
+                                                       bit4checkBox, bit5checkBox,
+                                                       bit6checkBox, bit7checkBox,
+                                                       bit8checkBox, bit9checkBox,
+                                                       bit10checkBox, bit11checkBox,
+                                                       bit12checkBox, bit13checkBox,
+                                                       bit14checkBox, bit15checkBox,
+                                                       bit16checkBox, bit17checkBox,
+                                                       bit18checkBox, bit19checkBox,
+                                                       bit20checkBox, bit21checkBox,
+                                                       bit22checkBox, bit23checkBox,
+                                                       bit24checkBox, bit25checkBox,
+                                                       bit26checkBox, bit27checkBox,
+                                                       bit28checkBox, bit29checkBox,
+                                                       bit30checkBox, bit31checkBox};
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -191,6 +212,16 @@ namespace Bitmeter
             hexValueTextBox.Text = "0x" + result.ToString("X8");
         }
 
+        private void resetBitCheckBoxes()
+        {
+            for (int i = 0; i < 32; i++)
+            {
+                bitCheckBoxes[i].Checked = false;
+            }
+
+            calcResult();
+        }
+
         private void bit0checkBox_CheckedChanged(object sender, EventArgs e)
         {
             calcResult();
@@ -353,49 +384,53 @@ namespace Bitmeter
 
         private void resetButton_Click(object sender, EventArgs e)
         {
-            bit0checkBox.Checked = false;
-            bit1checkBox.Checked = false;
-            bit2checkBox.Checked = false;
-            bit3checkBox.Checked = false;
-
-            bit4checkBox.Checked = false;
-            bit5checkBox.Checked = false;
-            bit6checkBox.Checked = false;
-            bit7checkBox.Checked = false;
-
-            bit8checkBox.Checked  = false;
-            bit9checkBox.Checked  = false;
-            bit10checkBox.Checked = false;
-            bit11checkBox.Checked = false;
-
-            bit12checkBox.Checked = false;
-            bit13checkBox.Checked = false;
-            bit14checkBox.Checked = false;
-            bit15checkBox.Checked = false;
-
-            bit16checkBox.Checked = false;
-            bit17checkBox.Checked = false;
-            bit18checkBox.Checked = false;
-            bit19checkBox.Checked = false;
-
-            bit20checkBox.Checked = false;
-            bit21checkBox.Checked = false;
-            bit22checkBox.Checked = false;
-            bit23checkBox.Checked = false;
-
-            bit24checkBox.Checked = false;
-            bit25checkBox.Checked = false;
-            bit26checkBox.Checked = false;
-            bit27checkBox.Checked = false;
-
-            bit28checkBox.Checked = false;
-            bit29checkBox.Checked = false;
-            bit30checkBox.Checked = false;
-            bit31checkBox.Checked = false;
+            resetBitCheckBoxes();
 
             result = 0;
 
             hexValueTextBox.Text = "0x" + result.ToString("X8");
+        }
+
+        private void lshButton_Click(object sender, EventArgs e)
+        {
+            bitStates[0] = false;
+
+            for (int i = 1; i < 32; i++)
+            {
+
+                bitStates[i] = bitCheckBoxes[i - 1].Checked;
+
+            }
+
+            resetBitCheckBoxes();
+
+            for (int i = 0; i < 32; i++)
+            {
+                bitCheckBoxes[i].Checked = bitStates[i];
+            }
+
+            calcResult();
+        }
+
+        private void rshButton_Click(object sender, EventArgs e)
+        {
+            bitStates[31] = false;
+
+            for (int i = 30; i >= 0; i--)
+            {
+
+                bitStates[i] = bitCheckBoxes[i + 1].Checked;
+
+            }
+
+            resetBitCheckBoxes();
+
+            for (int i = 0; i < 32; i++)
+            {
+                bitCheckBoxes[i].Checked = bitStates[i];
+            }
+
+            calcResult();
         }
     }
 }
