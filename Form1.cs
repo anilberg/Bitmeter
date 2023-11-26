@@ -18,6 +18,8 @@ namespace Bitmeter
 
         CheckBox[] bitCheckBoxes;
 
+        bool logicalShift = true;
+
         public Form1()
         {
             InitializeComponent();
@@ -414,7 +416,15 @@ namespace Bitmeter
 
         private void rshButton_Click(object sender, EventArgs e)
         {
-            bitStates[31] = false;
+            if(logicalShift)
+            {
+                bitStates[31] = false;
+            }
+            else
+            {
+                bitStates[31] = true;
+            }
+            
 
             for (int i = 30; i >= 0; i--)
             {
@@ -431,6 +441,16 @@ namespace Bitmeter
             }
 
             calcResult();
+        }
+
+        private void LShfradioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            logicalShift = LShfradioButton.Checked;
+        }
+
+        private void AShfradioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            logicalShift = !AShfradioButton.Checked;
         }
     }
 }

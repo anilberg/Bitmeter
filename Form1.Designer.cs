@@ -67,6 +67,10 @@
             this.resetButton = new System.Windows.Forms.Button();
             this.lshButton = new System.Windows.Forms.Button();
             this.rshButton = new System.Windows.Forms.Button();
+            this.LShfradioButton = new System.Windows.Forms.RadioButton();
+            this.AShfradioButton = new System.Windows.Forms.RadioButton();
+            this.ShiftGroupBox = new System.Windows.Forms.GroupBox();
+            this.ShiftGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // bit0checkBox
@@ -510,6 +514,42 @@
             this.rshButton.UseVisualStyleBackColor = true;
             this.rshButton.Click += new System.EventHandler(this.rshButton_Click);
             // 
+            // LShfradioButton
+            // 
+            this.LShfradioButton.AutoSize = true;
+            this.LShfradioButton.Checked = true;
+            this.LShfradioButton.Location = new System.Drawing.Point(19, 19);
+            this.LShfradioButton.Name = "LShfradioButton";
+            this.LShfradioButton.Size = new System.Drawing.Size(59, 17);
+            this.LShfradioButton.TabIndex = 38;
+            this.LShfradioButton.TabStop = true;
+            this.LShfradioButton.Text = "Logical";
+            this.LShfradioButton.UseVisualStyleBackColor = true;
+            this.LShfradioButton.CheckedChanged += new System.EventHandler(this.LShfradioButton_CheckedChanged);
+            // 
+            // AShfradioButton
+            // 
+            this.AShfradioButton.AutoSize = true;
+            this.AShfradioButton.Location = new System.Drawing.Point(19, 42);
+            this.AShfradioButton.Name = "AShfradioButton";
+            this.AShfradioButton.Size = new System.Drawing.Size(79, 17);
+            this.AShfradioButton.TabIndex = 39;
+            this.AShfradioButton.TabStop = true;
+            this.AShfradioButton.Text = "Arithmetical";
+            this.AShfradioButton.UseVisualStyleBackColor = true;
+            this.AShfradioButton.CheckedChanged += new System.EventHandler(this.AShfradioButton_CheckedChanged);
+            // 
+            // ShiftGroupBox
+            // 
+            this.ShiftGroupBox.Controls.Add(this.LShfradioButton);
+            this.ShiftGroupBox.Controls.Add(this.AShfradioButton);
+            this.ShiftGroupBox.Location = new System.Drawing.Point(51, 138);
+            this.ShiftGroupBox.Name = "ShiftGroupBox";
+            this.ShiftGroupBox.Size = new System.Drawing.Size(115, 69);
+            this.ShiftGroupBox.TabIndex = 40;
+            this.ShiftGroupBox.TabStop = false;
+            this.ShiftGroupBox.Text = "Shift Option";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -553,10 +593,13 @@
             this.Controls.Add(this.bit1checkBox);
             this.Controls.Add(this.bit0checkBox);
             this.Controls.Add(this.bitSequenceGroupBox);
+            this.Controls.Add(this.ShiftGroupBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Bitmeter";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.ShiftGroupBox.ResumeLayout(false);
+            this.ShiftGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -602,6 +645,9 @@
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Button lshButton;
         private System.Windows.Forms.Button rshButton;
+        private System.Windows.Forms.RadioButton LShfradioButton;
+        private System.Windows.Forms.RadioButton AShfradioButton;
+        private System.Windows.Forms.GroupBox ShiftGroupBox;
     }
 }
 
