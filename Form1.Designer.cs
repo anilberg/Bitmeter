@@ -486,7 +486,7 @@
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(283, 108);
+            this.resetButton.Location = new System.Drawing.Point(280, 140);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(75, 23);
             this.resetButton.TabIndex = 35;
@@ -496,7 +496,7 @@
             // 
             // lshButton
             // 
-            this.lshButton.Location = new System.Drawing.Point(202, 137);
+            this.lshButton.Location = new System.Drawing.Point(202, 111);
             this.lshButton.Name = "lshButton";
             this.lshButton.Size = new System.Drawing.Size(75, 23);
             this.lshButton.TabIndex = 36;
@@ -506,7 +506,7 @@
             // 
             // rshButton
             // 
-            this.rshButton.Location = new System.Drawing.Point(283, 137);
+            this.rshButton.Location = new System.Drawing.Point(280, 111);
             this.rshButton.Name = "rshButton";
             this.rshButton.Size = new System.Drawing.Size(75, 23);
             this.rshButton.TabIndex = 37;
@@ -543,7 +543,7 @@
             // 
             this.ShiftGroupBox.Controls.Add(this.LShfradioButton);
             this.ShiftGroupBox.Controls.Add(this.AShfradioButton);
-            this.ShiftGroupBox.Location = new System.Drawing.Point(51, 138);
+            this.ShiftGroupBox.Location = new System.Drawing.Point(371, 25);
             this.ShiftGroupBox.Name = "ShiftGroupBox";
             this.ShiftGroupBox.Size = new System.Drawing.Size(115, 69);
             this.ShiftGroupBox.TabIndex = 40;
@@ -554,7 +554,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(493, 169);
             this.Controls.Add(this.rshButton);
             this.Controls.Add(this.lshButton);
             this.Controls.Add(this.resetButton);
@@ -594,6 +594,7 @@
             this.Controls.Add(this.bit0checkBox);
             this.Controls.Add(this.bitSequenceGroupBox);
             this.Controls.Add(this.ShiftGroupBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Bitmeter";
