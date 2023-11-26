@@ -11,8 +11,7 @@ BitMeter is a lightweight and versatile utility that facilitates the conversion 
 - Minimal Interface: BitMeter features a minimalistic and streamlined interface, providing users with a straightforward and uncluttered experience. The simplicity of the design ensures that beginners and experienced developers can effortlessly utilize its powerful capabilities.
 
 # Installation ⏬
-Download the installation file from the `setup` folder. Follow the on-screen instructions to complete the installation.
-Once the installation is complete, you can launch BitMeter by double-clicking the application icon.
+To clone repository use `git clone https://github.com/anilberg/Bitmeter.git` or clone directly from Github Desktop.
 
 # Contact and Contribution 📧
 If you have any questions, suggestions, or feedback regarding BitMeter, please feel free to reach out to me at anilberk.1907@gmail.com. I appreciate your input and I am happy to assist you in any way I can.
